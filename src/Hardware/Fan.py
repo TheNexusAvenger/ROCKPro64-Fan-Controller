@@ -13,7 +13,7 @@ from Observer import Observer
 FAN_MINIMUM_PWM_SIGNAL = 64
 
 # The location of the file for controlling the PWM signal.
-PWM_FILE_LOCATION = "/sys/class/hwmon0/pwm1"
+PWM_FILE_LOCATION = "/sys/class/hwmon/hwmon0/pwm1"
 
 
 
