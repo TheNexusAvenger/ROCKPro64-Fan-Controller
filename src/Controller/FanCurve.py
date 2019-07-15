@@ -98,7 +98,7 @@ def fromFile(fileLocation):
         # Parse the fan curve points.
         newPoints = {}
         for line in fileObserver.readFileLines().split("\n"):
-            line = line.trim()
+            line = line.strip()
             numbers = line.split(",")
 
             try:
