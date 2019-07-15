@@ -48,7 +48,7 @@ class FileObserver(Observer.Observable):
 
         # Return the contents.
         with open(self.fileName) as file:
-            return file.readlines()
+            return file.read()
 
     """
     Writes the contents of the files. Throws an error
