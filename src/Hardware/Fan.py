@@ -46,7 +46,7 @@ class Fan(Observer.Observable):
         # Convert the speed to a byte (0-255).
         newSpeed = int(speed * 255)
         if newSpeed < FAN_MINIMUM_PWM_SIGNAL:
-            newSpeed = FAN_MINIMUM_PWM_SIGNAL
+            newSpeed = 0
 
         # Write the speed.
         self.fileObserver.writeFileLines(newSpeed)
