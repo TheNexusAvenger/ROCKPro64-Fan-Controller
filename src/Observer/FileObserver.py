@@ -60,7 +60,7 @@ class FileObserver(Observer.Observable):
             raise Exception("File does not exist: " + self.fileName)
 
         # Write the contents.
-        with open(self.fileName) as file:
+        with open(self.fileName,"w") as file:
             file.writelines(str(lines))
 
     """
