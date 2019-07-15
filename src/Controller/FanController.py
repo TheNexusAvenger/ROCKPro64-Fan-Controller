@@ -41,6 +41,9 @@ class FanController:
         temperatureMonitor.register(observer)
         fanCurve.register(observer)
 
+        # Update the fan speed.
+        self.updateFanSpeed()
+
     """
     Updates the fan speed.
     """
