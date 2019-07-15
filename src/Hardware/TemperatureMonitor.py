@@ -32,4 +32,4 @@ class TemperatureMonitor(FileObserver.FileObserver):
     Returns the current temperature.
     """
     def getTemperature(self):
-        return int(self.readFileLines())
+        return int(self.readFileLines())/1000
