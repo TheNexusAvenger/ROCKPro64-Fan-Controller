@@ -61,7 +61,7 @@ class FileObserver(Observer.Observable):
 
         # Write the contents.
         with open(self.fileName) as file:
-            file.writelines(lines)
+            file.writelines(str(lines))
 
     """
     Polling function that checks for file changes.
