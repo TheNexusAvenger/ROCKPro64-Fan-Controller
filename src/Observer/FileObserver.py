@@ -24,9 +24,9 @@ class FileObserver(Observer.Observable):
         # Store the file and the last time.
         self.fileName = fileName
         if self.fileExists():
-            self.lastModifiedTime = os.stat(fileName).st_mtime
+            self.lastContents = self.readFileLines()
         else:
-            self.lastModifiedTime = None
+            self.lastContents = None
 
         # Start polling in a thread.
         threading.Thread(target=self.startPolling).start()
@@ -71,16 +71,16 @@ class FileObserver(Observer.Observable):
         while True:
             # Check if the file has changed.
             if self.fileExists():
-                newLastModifiedTime = os.stat(self.fileName).st_mtime
+                newContents = self.readFileLines()
 
                 # If the last modified time changed, notify the observers.
-                if self.lastModifiedTime != newLastModifiedTime:
-                    self.lastModifiedTime = newLastModifiedTime
+                if self.lastContents != newContents:
+                    self.lastContents = newContents
                     self.notify()
             else:
                 # If the file was removed, notify the observers.
-                if self.lastModifiedTime != None:
-                    self.lastModifiedTime = None
+                if self.lastContents != None:
+                    self.lastContents = None
                     self.notify()
 
             # Sleep for 0.1 seconds.
